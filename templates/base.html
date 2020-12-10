@@ -22,7 +22,7 @@
             <ul class="navbar-nav mr-auto">
 
               <li class="nav-item active">
-                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
               </li>
 
               <li class="nav-item dropdown">
@@ -38,7 +38,7 @@
               </li>
 
               <li class="nav-item" id="coffee-nav-item">
-                  <a class="nav-link" href="#">Coffee</a>
+                  <a class="nav-link" href="{% url 'coffee' %}">Coffee</a>
               </li>
 
               <li class="nav-item dropdown">
@@ -57,7 +57,7 @@
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="{% url 'about' %}">About</a>
               </li>
 
             </ul>
@@ -131,7 +131,7 @@
         </div>
   
         <div class="text-center py-3">
-          Copyright &copy; <span class="year">2019</span> My Coffee. Powered By Hassouna Academy
+          Copyright &copy; <span class="year">2021</span> My Coffee. Powered By Ali khalid
         </div>
   
       </footer>
