@@ -127,3 +127,7 @@ STATIC_ROOT = "/Users/96659/Documents/Django/My coffee/static/"
 STATICFILES_DIRS = [
     BASE_DIR/'Mycoffee'/'static',
     ]
+
+
+# media settings
+MEDIA_ROOT = "/Users/96659/Documents/Django/My coffee/media/"
