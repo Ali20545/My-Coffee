@@ -2,6 +2,7 @@
     "python.pythonPath": "env\\Scripts\\python.exe",
     "git.ignoreLimitWarning": true,
     "python.linting.pylintArgs": [
-        "--load-plugins=pylint_django"
+        "--load-plugins=pylint_django",
+        "erorrsonly",
    ],
 }

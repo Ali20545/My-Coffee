@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Coffee
+from pages.models import Coffee
 # Create your views here.
 
 
