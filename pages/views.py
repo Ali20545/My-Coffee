@@ -24,13 +24,3 @@ def profile(request):
 
 def search(request):
     return render(request, 'pages/search.html')
-
-def products(request):
-    coffee = Coffee.objects.all()
-    data = {
-        'coffee': coffee,
-    }
-    return render(request, 'pages/products.html', data)
-
-def product(request):
-    return render(request, 'pages/product.html')
