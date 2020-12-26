@@ -20,17 +20,16 @@
             <section>
                 <div class="container-fluid">
                   <div class="row p-5" >
-                    {% for coffee in coffee %}
+                    {% for coffes in co_site %}
                     <div>
-                      <div class="card m-2" style="width: 18rem;">
-                        <img src="{{ coffee.photo }}" class="card-img-top" alt="..."  style="height: 300px;">
+                      <div class="card m-2" style="width: 25rem; height: 565px;">
+                        <img src="{{ coffes.photo }}" class="card-img-top" alt="..."  style="height: 300px;">
                         <div class="card-body">
-                          <h5 class="card-title">{{ coffee.Product_Name }}</h5>
-                          <p class="card-text">{{ coffee.Description }}</p>
+                          <h5 class="card-title">{{ coffes.Product_Name }}</h5>
+                          <p class="card-text">{{ coffes.Description }}</p>
                           <a href="#" class="btn btn-warning">Show Details</a>
                         </div>
                       </div>
-                    
                     </div>
                     {% endfor %}
                     </div>

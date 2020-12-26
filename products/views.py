@@ -1,9 +1,11 @@
 from django.shortcuts import render
+from .models import Coffee
 # Create your views here.
 
 
 def products(request):
-    return render(request, 'pages/products.html')
-
-def product(request):
-    return render(request, 'pages/product.html')
+    coffees = Coffee.objects.all()
+    data = {
+        'co_site': coffees,
+    }
+    return render(request, 'pages/products.html', data)
