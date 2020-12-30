@@ -81,19 +81,19 @@
         <h1 class="text-center">Latest products</h1>
         <div class="container-fluid">
           <div class="row p-5" style="padding-left: 17% !important;">
-            {% for coffes in co_site %}
+            {% for coffees in latest_coffee %}
             <div>
-              <div class="card m-2" style="width: 18rem;">
-                <img src="{{ coffes.photo }}" class="card-img-top" alt="..."  style="height: 300px;">
+              <div class="card m-2">
+                <img src="{{ coffees.photo.url }}" class="card-img-top" alt="..."  style="width: 200px;height: 200px;">
                 <div class="card-body">
-                  <h5 class="card-title">{{ coffes.Product_Name }}</h5>
-                  <p class="card-text">{{ coffes.Description }}</p>
-                  <a href="#" class="btn btn-warning">Show Details</a>
+                  <h5 class="card-title">{{ coffees.Product_Name }}</h5>   
+                  <p class="card-text">Current Price: <span id="price" class="bg-dark text-light rounded-circle p-2">${{coffees.price}}</span></p>                       
+                  <a href="{% url 'coffee_detail' coffees.id %}" class="btn btn-warning">Show Details</a>
                 </div>
               </div>
             </div>
             {% endfor %}
-            </div>
+
           </div>
         </div>
       </section>
@@ -130,5 +130,5 @@
         $(".year").text( (new Date).getFullYear() );
     </script>
 </body>
-</html>
+</html>                                                    
 {% endblock %}

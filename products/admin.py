@@ -9,10 +9,10 @@ class Coffeeadmin(admin.ModelAdmin):
 
     thumbnail.short_description = 'Photo'
 
-    list_display = ('id', 'thumbnail', 'Product_Name', 'Description', 'create_date')
+    list_display = ('id', 'thumbnail', 'Product_Name', 'create_date')
     list_display_links = ('id', 'thumbnail', 'Product_Name',)
-    search_fields = ('Product_Name', 'Description',)
-    list_filter = ('Product_Name','Description',)
+    search_fields = ('Product_Name',)
+    list_filter = ('Product_Name',)
 
 admin.site.register(Coffee, Coffeeadmin)
     
