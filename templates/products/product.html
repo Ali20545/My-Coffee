@@ -1,17 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/pretty-checkbox.min.css' %}">
-    <title>My Coffee</title>
-</head>
 <body>
+    
+
     <div class="my-form container p-5 my-5 rounded border border-warning">
         <form>
             <h2 class="text-center">Product Details</h2>
@@ -24,15 +16,15 @@
                     <div class="card mb-3 w-100" >
                       <div class="row no-gutters">
                         <div class="col-md-4">
-                          <img src="{% static 'img/pro1.jpg' %}" class="card-img" alt="...">
+                          <img src="{{ single_coffee.photo.url }}" class="card-img" alt="{{ single_coffee.Product_name }}" style="height: 300px;">
                         </div>
                         <div class="col-md-8">
                           <div class="card-body">
-                            <h5 class="card-title" id="productName">Product Name</h5>
+                            <h5 class="card-title" id="productName">{{ single_coffee.Product_Name }}</h5>
                             <hr>
-                            <p class="card-text" id="description">Description</p>
+                            <p class="card-text" id="description">{{single_coffee.description}}</p>
                             <hr>
-                            <p class="card-text">Current Price: <span id="price" class="bg-dark text-light rounded-circle p-2">$10</span></p>
+                            <p class="card-text">Current Price: <span id="price" class="bg-dark text-light rounded-circle p-2">$ {{ single_coffee.price }}</span></p>
                             <hr>
                             <button type="submit" class="btn btn-warning">Add To Cart</button>
                             <button type="submit" class="btn btn-warning text-white">
@@ -53,15 +45,4 @@
         </form>
 
     </div>
-        <script src="{% static 'js/jquery-3.4.1.slim.min.js' %}"></script>
-    <script src="{% static 'js/popper.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script>
-        $(function () {
-            $('[data-toggle="popover"]').popover()
-        })
-        $(".year").text( (new Date).getFullYear() );
-    </script>
-</body>
-</html>
 {% endblock %}

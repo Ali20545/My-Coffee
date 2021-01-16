@@ -1,19 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="shortcut icon" type="image/x" href="{% static 'img/Kzzu-I-Love-You-Coffee.icon' %}">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/pretty-checkbox.min.css' %}">
-    <title>My Coffee</title>
-    <link rel="shortcut icon" type="image/x-png" href="{% static 'img/mycoffee.icon' %}">
-
-</head>
 <body>
       <!--jumbotron 1-->
       <section>
@@ -83,13 +70,13 @@
           <div class="row p-5" style="padding-left: 17% !important;">
             {% for coffees in latest_coffee %}
             <div>
-              <div class="card m-2">
-                <img src="{{ coffees.photo.url }}" class="card-img-top" alt="..."  style="width: 200px;height: 200px;">
+              <div class="card m-2" style="width: 18rem;">
+                <img src="{{coffees.photo.url}}" class="card-img-top" alt="{{coffees.Product_Name}}" style="height: 300px;">
                 <div class="card-body">
-                  <h5 class="card-title">{{ coffees.Product_Name }}</h5>   
-                  <p class="card-text">Current Price: <span id="price" class="bg-dark text-light rounded-circle p-2">${{coffees.price}}</span></p>                       
-                  <a href="{% url 'coffee_detail' coffees.id %}" class="btn btn-warning">Show Details</a>
-                </div>
+                  <h5 class="card-title">{{coffees.Product_Name}}</h5>
+                  <p class="card-text text-truncate">{{coffees.description}}</p>
+                  <a href="{% url 'product' coffees.id %}" class="btn btn-warning">Show Details</a>
+                </div> 
               </div>
             </div>
             {% endfor %}
@@ -117,18 +104,5 @@
         </div>
       </section>
     
-    </div>
-
-
-    <script src="{% static 'js/jquery-3.4.1.slim.min.js' %}"></script>
-    <script src="{% static 'js/popper.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script>
-        $(function () {
-            $('[data-toggle="popover"]').popover()
-        })
-        $(".year").text( (new Date).getFullYear() );
-    </script>
-</body>
-</html>                                                    
+    </div>                                                   
 {% endblock %}

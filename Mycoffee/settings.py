@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'Mycoffee.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'coffee',
+        'NAME': 'My_coffee',
         'USER': 'postgres',
         'PASSWORD': '1234',
         'HOST': 'localhost',
@@ -123,11 +123,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = "/Users/96659/Documents/django/Mycoffee/static"
+STATIC_ROOT = "/Users/96659/Documents/Django/Mycoffee/static"
 STATICFILES_DIRS = [
     BASE_DIR/'Mycoffee'/'static',
-    ]
+]
 
 
 # media settings
 MEDIA_ROOT = "/Users/96659/Documents/Django/My coffee/media/"
+
+# messages
+from django.contrib.messages import constants as messages
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger',
+}

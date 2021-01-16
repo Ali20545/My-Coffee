@@ -1,34 +1,23 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/pretty-checkbox.min.css' %}">
-    <title>My Coffee</title>
-</head>
 <body>
     <div class="my-form container p-5 my-5 rounded border border-warning">
         <form>
-            <h2 class="text-center">All Products</h2>
+            <h2 class="text-center">Products</h2>
             <hr>
-
             <section>
                 <div class="container-fluid">
                   <div class="row p-5" >
-                    {% for coffees in co_site %}
+                    {% for coffees in Products %}
                     <div>
-                      <div class="card m-2">
-                        <img src="{{ coffees.photo }}" class="card-img-top" alt="..."  style="width: 200px;height: 200px;">
+                      <div class="card m-2" style="width: 18rem;">
+                        <img src="{{coffees.photo.url}}" class="card-img-top" alt="{{coffees.Product_Name}}" style="height: 300px;">
                         <div class="card-body">
-                          <h5 class="card-title">{{ coffees.Product_Name }}</h5>   
-                          <p class="card-text">Current Price: <span id="price" class="bg-dark text-light rounded-circle p-2">${{coffees.price}}</span></p>                       
-                          <a href="{% url 'coffee_detail' coffees.id %}" class="btn btn-warning">Show Details</a>
-                        </div>
+                          <h5 class="card-title">{{coffees.Product_Name}}</h5>
+                          <p class="card-text text-truncate">{{coffees.description}}</p>
+                          <a href="{% url 'product' coffees.id %}" class="btn btn-warning">Show Details</a>
+                        </div> 
                       </div>
                     </div>
                     {% endfor %}
@@ -41,15 +30,4 @@
         </form>
 
     </div>
-   <script src="{% static 'js/jquery-3.4.1.slim.min.js' %}"></script>
-    <script src="{% static 'js/popper.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script>
-        $(function () {
-            $('[data-toggle="popover"]').popover()
-        })
-        $(".year").text( (new Date).getFullYear() );
-    </script>
-</body>
-</html>
 {% endblock %}
